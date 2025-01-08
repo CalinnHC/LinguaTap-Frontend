@@ -1,0 +1,20 @@
+<div class="home">
+  <img src="LinguaTapLogo.png" alt="LinguaTap Logo" />
+  <div class="home-content">
+    <h2>Iniciar Sesión</h2>
+    <form (ngSubmit)="onLogin()">
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p><br>
+      <input type="text" id="username" [(ngModel)]="username" name="username" placeholder="Username" required /><br>
+      <div class="password-field-div">
+        <input class="password-input" [type]="showPassword ? 'text' : 'password'" id="password" [(ngModel)]="password"
+          name="password" placeholder="Password" required />
+        <button class="no-style-button" type="button" (click)="togglePasswordVisibility()">
+          <span [innerHTML]="showPassword ? '🙈' : '👁️'"></span>
+        </button>
+      </div><br>
+      <button type="submit">Iniciar Sesión</button><br>
+      <label>¿Aún no tienes una cuenta?<a href="/register"> Regístrate</a></label><br>
+      <a href="/">Olvidaste la contraseña</a>
+    </form>
+  </div>
+</div>

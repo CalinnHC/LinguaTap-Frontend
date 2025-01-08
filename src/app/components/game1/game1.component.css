@@ -1,0 +1,59 @@
+h4{
+  margin: 30px;
+  font-family: 'Alegreya Sans', medium;
+  font-size: 1.2rem;
+  font-weight:medium;
+}
+input {
+    margin-top: 1rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  .game {
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    text-align: center;
+    height: 23%;
+  }
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  background-color: var(--stats-color);
+  padding: 40px 10px;
+  width: 15%;
+  color: var(--background-color);
+  border-radius: 16px;
+}
+.game h1 {
+  font-family: 'Alegreya Sans', medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  height: 100%;
+  gap: 40px; 
+  text-transform: uppercase;
+}
+
+.characters {
+  display: inline-block;
+  background-color: var(--cards-color);
+  padding: 20px;
+  font-size: 65px;
+  width: 4%;
+  border-radius: 8px;
+}
+h3{
+  font-size: 65px;
+  margin: 0;
+  font-family: 'Alegreya Sans', medium;
+  font-weight:lighter;
+  text-transform: uppercase;
+}

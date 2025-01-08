@@ -1,0 +1,22 @@
+<div class="main-menu">
+    <div class="sidebar">
+        <a href="mainMenu">Juegos</a>
+        <a href="">Lectura</a>
+        <a href="">Estadísticas</a>
+        <a class="Profile" href="/userProfile">Perfil</a>
+    </div>
+    <div class="userData">
+        <h2>Perfil de Usuario</h2>
+        <h3>Nombre de Usuario</h3>
+        <input type="text" [(ngModel)]="username" disabled="true" /><br>
+        <!-- <button>Actualizar Nombre</button> -->
+        <h3>Correo Electrónico</h3>
+        <input type="text" [(ngModel)]="email" disabled="true" />
+        <h3>Contraseña</h3>
+        <input type="password" disabled="true" /><br>
+        <button (click)="navigateTo('changePassword')">Cambiar Contraseña</button>
+        <h3>País</h3>
+        <input type="text" [(ngModel)]="country" disabled="true" /><br>
+        <button (click)="logout()">Cerrar Sesión</button>
+    </div>
+</div>

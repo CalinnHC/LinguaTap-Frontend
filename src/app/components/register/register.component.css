@@ -1,0 +1,57 @@
+.home-content input {
+    width: 70vh;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+select {
+    width: 70vh;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+img {
+    height: 60%;
+    max-width: 100%;
+}
+h2 {
+    text-align: center;
+}
+select option:disabled {
+    color: gray; /* Un color gris claro para el placeholder */
+}
+
+.checkbox-label {
+    align-self: left;
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    gap: 8px; /* Espacio entre el checkbox y el texto */
+    font-size: 16px; /* Tamaño del texto */
+    width: 100%; /* Asegura que el ancho se ajuste al contenido */
+}
+.checkbox-label input[type="checkbox"] {
+    width: auto; /* Evita que el checkbox herede un ancho grande */
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+button:disabled{
+    background-color: #d3d3d3;
+    color: #a9a9a9;
+    cursor: not-allowed;
+}

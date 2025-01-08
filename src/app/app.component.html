@@ -1,0 +1,8 @@
+<header>
+  <a href="/" class="title"><img class="title-logo" src="LinguaTapLogo.png" alt="LinguaTap Logo" />LinguaTap</a>
+  <div class="nav-buttons">
+    <button *ngIf="!isLoggedIn" (click)="navigateTo('register')">Registrarse</button>
+    <button *ngIf="!isLoggedIn" (click)="navigateTo('login')">Iniciar Sesión</button> 
+  </div>
+</header>
+<router-outlet></router-outlet>

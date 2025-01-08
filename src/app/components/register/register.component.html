@@ -1,0 +1,25 @@
+<div class="home">
+  <img src="LinguaTapLogo.png" alt="LinguaTap Logo" />
+  <div class="home-content">
+    <h2>Registrarse</h2>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <form (ngSubmit)="onRegister()">
+      <input type="text" [(ngModel)]="email" id="email" name="email" placeholder="Correo Electrónico" required>
+      <input type="password" [(ngModel)]="password" id="password" name="password" placeholder="Contraseña" required>
+      <input type="text" [(ngModel)]="username" id="name" name="name" placeholder="Nombre de Usuario" required>
+      <select [(ngModel)]="country" name="mySelect" required>
+        <option value="0" disabled selected>País</option>
+        <option *ngFor="let option of options" [value]="option.value">
+          {{ option.label }}
+        </option>
+      </select>
+      <div class="checkbox-label">
+        <label class="checkbox-label">
+          <input type="checkbox" name="age" value="age" [(ngModel)]="check" required> Tienes al menos 16 años
+        </label>
+      </div>
+      <button type="submit" [disabled]="!isFormValid()">Registrarse</button>
+      <label>Ya tienes una cuenta <a href="/login">Iniciar Sesión</a></label>
+    </form>
+  </div>
+</div>

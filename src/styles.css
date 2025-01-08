@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
+
+:root {
+    --background-color: #FAFCFC;
+    --text-color: #141616;
+    --button-color: #FFBC02;
+    --cards-color: #FFEDBA;
+    --stats-color: #65558F;
+  }
+
+  html,body{
+    margin: 0;
+    height: 96%;
+  }
+h2 {
+    font-family: 'Alegreya Sans', medium;
+    font-size: 2rem;
+    font-weight:medium;
+}
+p {
+    font-family: 'Alegreya Sans', medium;
+    font-size: 1.5rem;
+    font-weight:medium;
+}
+
+button {
+    background-color: var(--button-color);
+    color: var(--background-color);
+    font-family: 'Jersey', sans-serif;
+    font-size: 15px; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 8px;
+    padding: 5px 5px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 160px;
+    height: 30px;
+  }
+  
+button:hover {
+    background-color: #e9b004;
+  }
+
+input{
+    border-radius: 4px;
+    border-width: 1px;
+    padding: 0 5px 0 15px;
+  }
+
+.no-style-button {
+    all: unset;
+    cursor: pointer;
+  }
+  
+app-root {
+    height: 100%;
+  }
+
+app-home {
+    height: 100%;
+  }
+
+app-login {
+    height: 100%;
+  }
+
+app-register {
+    height: 100%;
+  }

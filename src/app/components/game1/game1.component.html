@@ -1,0 +1,17 @@
+<h4>Una Palabra</h4>
+<div class="game">
+    <h3>{{randomWord?.spanish}}</h3>
+    <h1>
+      <span *ngFor="let char of displayedWord" class="characters">{{ char }}</span>
+    </h1>
+    <div class="stats">
+      <h2>Porcentaje<br>{{ percentCount }}%</h2>
+  
+      <h2>Errores<br>{{ errorsCount }}/10</h2>
+      
+      <h2>Correctas<br>{{ correctCount }}</h2>
+    </div>
+    <p>{{ message }}</p>
+    
+  </div>
+  
