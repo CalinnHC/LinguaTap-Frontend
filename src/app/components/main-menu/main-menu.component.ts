@@ -10,11 +10,7 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './main-menu.component.css'
 })
 export class MainMenuComponent {
-constructor(private router: Router, private apiService: ApiService) {
-  if(!apiService.isLoggedInSubject.value) {
-    this.navigateTo('/');
-  }
-}
+constructor(private router: Router, private apiService: ApiService) {}
   navigateTo(route: string) {
     this.router.navigate([route]);
   }

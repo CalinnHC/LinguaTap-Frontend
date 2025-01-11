@@ -15,7 +15,7 @@ export class UserProfileComponent {
   country: string = 'Panamá';
 
   constructor(private router: Router, private apiService: ApiService) {
-    if(!apiService.isLoggedInSubject.value) {
+    if(!apiService.isLoggedIn()) {
       this.navigateTo('/');
       
     }

@@ -9,11 +9,7 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  constructor(private router: Router, public apiService: ApiService) {
-    if(apiService.isLoggedInSubject.value) {
-      this.navigateTo('/mainMenu');
-    }
-  }
+  constructor(private router: Router, public apiService: ApiService) {}
   navigateTo(route: string) {
     this.router.navigate([route]);
   }

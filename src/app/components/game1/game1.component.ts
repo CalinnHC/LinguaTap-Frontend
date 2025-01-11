@@ -25,9 +25,6 @@ export class Game1Component{
 
   constructor(private wordService: WordService, private router: Router, private apiService: ApiService) {
     this.initializeGame();
-    if(!apiService.isLoggedInSubject.value) {
-      this.navigateTo('/');
-    }
   }
 
   @HostListener('document:keydown', ['$event'])

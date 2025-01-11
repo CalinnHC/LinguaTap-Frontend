@@ -20,28 +20,27 @@ export class LoginComponent {
   navigateTo(route: string) {
     this.router.navigate([route]);
   }
-  
+
   onLogin(): void {
     this.apiService.login(this.username, this.password).subscribe({
       next: (response) => {
-        if (response === null) {
+        if (response.token) {
+          this.apiService.saveToken(response.token); // Guardar el token JWT
+          console.log('Login exitoso. Token guardado.');
+          this.navigateTo('/mainMenu'); // Redirigir al menú principal
+        } else {
           this.errorMessage = 'Nombre de usuario o contraseña incorrectos.';
           console.error('Error al iniciar sesión: Credenciales incorrectas.');
-          return;
         }
-        this.apiService.loginSuccess();
-        console.log('ID de usuario:', response.id_user);
-        this.apiService.updateUserId(response.id_user);
-        this.apiService.getLoggedInStatus();
-        this.navigateTo('/mainMenu');
       },
       error: (error) => {
         console.error('Error al iniciar sesión:', error);
-        this.errorMessage = 'Nombre de usuario o contraseña incorrectos.';
+        this.errorMessage = 'Ocurrió un error al iniciar sesión.';
       },
     });
   }
-  togglePasswordVisibility() {
+
+  togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
   }
-} 
+}

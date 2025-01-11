@@ -22,11 +22,7 @@ export class RegisterComponent {
     { value: '3', label: 'México' }
   ];
 
-  constructor(private router: Router, private apiService: ApiService) {
-    if(apiService.isLoggedInSubject.value) {
-    this.navigateTo('/mainMenu');
-  }
-}
+  constructor(private router: Router, private apiService: ApiService) {}
 navigateTo(route: string) {
   this.router.navigate([route]);
 }
@@ -36,18 +32,14 @@ onRegister(): void {
     next: (response) => {
       console.log('Registro exitoso:', response);
       if (response === null) {
-        console.error('Error al registrar: Credenciales incorrectas.');
         this.errorMessage = 'Error al registrarse';
         return;
       }
-      console.log('ID de usuario:', response.id_user);
-      this.apiService.updateUserId(response.id_user);
-      this.apiService.getLoggedInStatus();
       this.navigateTo('/mainMenu');
     },
     error: (error) => {
-      console.error('Error al registrar:', error);
-      this.errorMessage = 'El correo ya ha  sido utilizado';
+      console.error('Error al registrar:', error.error);
+      this.errorMessage = error.error;
     },
   });}
 

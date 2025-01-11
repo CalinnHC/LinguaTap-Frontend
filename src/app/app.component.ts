@@ -20,10 +20,14 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.apiService.getLoggedInStatus().subscribe(status => {
-      this.isLoggedIn = status;
-    });}
-  
-  
+    this.isLoggedIn=this.apiService.isLoggedIn();
+  }
+
+  ngDoCheck() {
+    const currentLoginStatus = this.apiService.isLoggedIn();
+    if (currentLoginStatus !== this.isLoggedIn) {
+      this.isLoggedIn = currentLoginStatus;
+    }
+  }
 
 }
