@@ -31,17 +31,16 @@ onRegister(): void {
   this.apiService.newUser(this.username, this.password, this.email, this.country).subscribe({
     next: (response) => {
       console.log('Registro exitoso:', response);
-      if (response === null) {
-        this.errorMessage = 'Error al registrarse';
-        return;
-      }
-      this.navigateTo('/mainMenu');
+      this.errorMessage = ''; // Limpia cualquier error previo
+      this.navigateTo('/');
     },
     error: (error) => {
       console.error('Error al registrar:', error.error);
-      this.errorMessage = error.error;
+      this.errorMessage = error.error; // Esto manejará el mensaje plano
     },
-  });}
+  });
+}
+
 
   isFormValid(): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

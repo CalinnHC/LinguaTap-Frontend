@@ -52,12 +52,12 @@ export class ApiService {
     return this.http.get<any>(`${this.baseUrl}/user/${this.getUserId()}`);
   }
 
-  newUser(username: String, password: String, email: String, country: Number): Observable<any> {
+  newUser(username: string, password: string, email: string, country: number) {
     const id_type: Number = 2;
     const body = {username, password, email, country,id_type};
-    console.log(body);
-    return this.http.post<any>(`${this.baseUrl}/user`, body);
+    return this.http.post(`${this.baseUrl}/user`, body, { responseType: 'text' });
   }
+  
 
   newScore(id_game: number, score: number): Observable<any> {
     const user_id = this.getUserId();
