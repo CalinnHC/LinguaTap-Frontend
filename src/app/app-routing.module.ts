@@ -9,6 +9,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { authGuard } from './guards/auth.guard';
 import { noAuthGuard } from './guards/no-auth.guard';
+import { ForgottenPasswordComponent } from './components/forgotten-password/forgotten-password.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,canActivate: [noAuthGuard]},
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'game1', component: Game1Component, canActivate: [authGuard]},
   { path: 'userProfile', component: UserProfileComponent, canActivate: [authGuard]},
   { path: 'changePassword', component: ChangePasswordComponent, canActivate: [authGuard]},
-  { path: '**', redirectTo: 'mainMenu' },
+  { path: 'forgotten-password', component: ForgottenPasswordComponent, canActivate: [noAuthGuard]},
+  { path: 'new-password', component: NewPasswordComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

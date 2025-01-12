@@ -11,6 +11,8 @@ import { Game1Component } from './components/game1/game1.component';
 import { FormsModule } from '@angular/forms';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ForgottenPasswordComponent } from './components/forgotten-password/forgotten-password.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     MainMenuComponent,
     Game1Component,
     UserProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ForgottenPasswordComponent,
+    NewPasswordComponent
   ],
   imports: [
     BrowserModule,

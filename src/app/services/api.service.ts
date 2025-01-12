@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { of } from 'rxjs';
@@ -97,6 +97,30 @@ export class ApiService {
       }
     }
     return null;
+  }
+
+  sendForgottenPasswordEmail(email: string): Observable<string> { 
+    const url = `${this.baseUrl}/forgottenPasswordEmail`;
+    const params = { email };
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.get<string>(url, { params, headers, responseType: 'text' as 'json' });
+  }
+
+  confirmNewPasswordToken(token: string): Observable<string> {
+    const url = `${this.baseUrl}/confirmNewPassword`;
+    const params = { token };
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  
+    return this.http.get<string>(url, { params, headers });
+  }
+
+  updatePassword(token: string, newPassword: string): Observable<string> {
+    const url = `${this.baseUrl}/NewPassword`;
+    const params = { token, newPassword };
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    console.log("Sending: " + token + " and " + newPassword);
+  
+    return this.http.get<string>(url, { params, headers });
   }
 
 }
