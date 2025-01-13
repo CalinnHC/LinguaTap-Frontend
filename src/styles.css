@@ -54,19 +54,10 @@ input{
     all: unset;
     cursor: pointer;
   }
-  
-app-root {
-    height: 100%;
-  }
 
-app-home {
-    height: 100%;
-  }
-
-app-login {
-    height: 100%;
-  }
-
-app-register {
-    height: 100%;
+  @media (max-width: 768px) {
+    html,body{
+      margin: 0;
+      height: auto;
+    }
   }

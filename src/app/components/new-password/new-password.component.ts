@@ -40,15 +40,16 @@ export class NewPasswordComponent {
   verifyToken(token: string): void {
     this.apiService.confirmNewPasswordToken(token).subscribe({
       next: (response) => {
-        this.errorMessage = response;
+        console.log("Exito");
       },
       error: (err) => {
-        this.errorMessage = err.error || 'Error al verificar el token.';
+        console.log(err);
+        this.errorMessage = err.error.message || 'Error al verificar el token.';
         this.router.navigate(["/"]);
       }
     });
   }
-
+  
   toggleNewPasswordVisibility() {
     this.showNewPassword = !this.showNewPassword;
   }

@@ -11,3 +11,29 @@
     align-items: center;
     justify-content: center;
 }
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        height: auto;
+    }
+
+    .home img {
+        max-width: 80%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .home-content {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .home-content p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+}

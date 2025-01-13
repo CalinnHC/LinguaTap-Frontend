@@ -70,3 +70,90 @@
     border-radius: 16px;
     width: 90%;
 }
+
+
+/* Estilos responsivos para la página en dispositivos móviles */
+@media (max-width: 768px) {
+
+  img {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+  .main-menu {
+    flex-direction: column;
+  }
+
+
+  .sidebar {
+    width: 100%;
+    height: 58px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    border-right: none;
+    border-bottom: 2px solid #CBFA01;
+    justify-content: space-evenly;
+}
+
+  .sidebar a, .Profile {
+    height: 100%;
+    font-size: 16px;
+    text-align: center;
+    align-content: center;
+    padding: 10px 0 10px 0;
+    margin: 0;
+  }
+
+
+  .sidebar a:hover {
+    background-color: var(--button-color);
+  }
+
+  .main {
+    background-color: var(--button-color);
+  }
+
+  .games {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+  }
+
+  .game-card {
+    width: 85%;
+    padding: 20px 0;
+    background-color: var(--cards-color);
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+
+  .game-card:hover {
+    background-color: #ffe08c;
+  }
+
+  .game-card h3 {
+    font-size: 24px; /* Ajuste del tamaño del título */
+    margin: 0;
+  }
+
+  .game-preview {
+    border-radius: 16px;
+    width: 70%;
+    height: auto;
+  }
+
+  
+}
+
