@@ -4,7 +4,7 @@
 }
 .title {
     font-family: 'Rammetto One';
-    font-size: 2rem;
+    font-size: 1.9rem;
     text-decoration: none;
     color: inherit;
     width: 100%;
@@ -12,6 +12,7 @@
 header {
     display: flex;
     padding: 0 10px 0 10px;
+    height: 50px;
     border-bottom: 2px solid #CBFA01;
   }
 .nav-buttons{
@@ -21,12 +22,20 @@ header {
     gap: 10px;
     padding: 0 10px 0 10px;
 }
+.side-content {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 52px);
+    width: 100vw;
+  }
+
 
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         align-items: center;
         padding: 10px;
+        height: auto;
     }
 
     .title {
@@ -46,5 +55,18 @@ header {
         width: 60%;
         justify-content: center;
     }
+    .side-content{
+        flex-direction: column;
+        width: 100%;
+    }
+    .routes{
+        width: auto;
+      }
+    .side-content {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: auto;
+      }
 
 }

@@ -1,0 +1,15 @@
+<div class="results-container">
+    <h1>Resultados de {{ gameName }}</h1>
+    <h2>Respuesta correcta: {{ gameAns }}</h2>
+    <div class="score-section">
+      <p><strong>Porcentaje:</strong> {{ percentage }}%</p>
+      <p><strong>Respuestas Correctas:</strong> {{ correctAnswers }}</p>
+      <p><strong>Errores:</strong> {{ errors }}</p>
+    </div>
+  
+    <div class="actions">
+      <button (click)="retry()">Intentar de nuevo</button>
+      <button (click)="goHome()">Volver al inicio</button>
+    </div>
+  </div>
+  

@@ -54,5 +54,12 @@ export class ChangePasswordComponent {
   navigateTo(route: string) {
     this.router.navigate([route]);
   }
+  ngOnInit() {
+    this.apiService.toggleSidebar(true);
+  }
+
+  ngOnDestroy() {
+    this.apiService.toggleSidebar(false);
+  }
 
 }

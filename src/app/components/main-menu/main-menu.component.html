@@ -1,16 +1,25 @@
-<div class="main-menu">
-    <div class="sidebar">
-        <a class="main" href="mainMenu">Juegos</a>
-        <a href="">Lectura</a>
-        <a href="">Estadísticas</a>
-        <a class="Profile" href="/userProfile">Perfil</a>
-    </div>
+<div class="games-wrapper">
     <div class="games">
-        <div class="game-card">
+        <div class="game-card" (mouseover)="onHover('card1')" (mouseleave)="onLeave('card1')"
+            [ngClass]="{'hovered': isHovered['card1']}">
             <h3>Una Palabra</h3>
-            <img src="1game.png" class="game-preview" />
-            <button (click)="navigateTo('game1')">JUGAR</button>
+            <div class="inner-div" [ngClass]="{'visible': isHovered['card1']}">
+                <p>Los jugadores deben escribir la traducción correcta al inglés de palabras en español.</p>
+            </div>
+            <img src="1.png" class="game-preview" [ngClass]="{'hidden': isHovered['card1']}" />
+            <button (click)="navigateTo('game-1')" class="button-bottom">JUGAR</button>
         </div>
+    
+        <div class="game-card" (mouseover)="onHover('card2')" (mouseleave)="onLeave('card2')"
+            [ngClass]="{'hovered': isHovered['card2']}">
+            <h3>Escoge la Correcta</h3>
+            <div class="inner-div" [ngClass]="{'visible': isHovered['card2']}">
+                <p>Selecciona la opción correcta en inglés para palabras en español. </p>
+            </div>
+            <img src="2.png" class="game-preview" [ngClass]="{'hidden': isHovered['card2']}" />
+            <button (click)="navigateTo('game-2')" class="button-bottom">JUGAR</button>
+        </div>
+    
         <div class="game-card">
             <h3>Proximamente...</h3>
             <img src="game-ex.png" class="game-preview" />
@@ -31,6 +40,23 @@
             <img src="game-ex.png" class="game-preview" />
             <button (click)="navigateTo('')">JUGAR</button>
         </div>
+        <div class="game-card">
+            <h3>Proximamente...</h3>
+            <img src="game-ex.png" class="game-preview" />
+            <button (click)="navigateTo('')">JUGAR</button>
+        </div>
+        <div class="game-card">
+            <h3>Proximamente...</h3>
+            <img src="game-ex.png" class="game-preview" />
+            <button (click)="navigateTo('')">JUGAR</button>
+        </div>
+        <div class="game-card">
+            <h3>Proximamente...</h3>
+            <img src="game-ex.png" class="game-preview" />
+            <button (click)="navigateTo('')">JUGAR</button>
+        </div>
+    
         
+    
     </div>
 </div>

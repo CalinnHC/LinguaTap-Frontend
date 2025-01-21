@@ -11,6 +11,7 @@ import { ApiService } from './services/api.service';
 export class AppComponent {
   title = 'LinguaTapSite';
   isLoggedIn: boolean = false;
+  showSidebar: boolean = false;
   
   constructor(private router: Router, public apiService: ApiService) {
   }
@@ -28,6 +29,7 @@ export class AppComponent {
     if (currentLoginStatus !== this.isLoggedIn) {
       this.isLoggedIn = currentLoginStatus;
     }
+    this.showSidebar = this.apiService['showSidebar'].value;
   }
 
 }

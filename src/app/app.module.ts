@@ -13,6 +13,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ForgottenPasswordComponent } from './components/forgotten-password/forgotten-password.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { Game2Component } from './components/game-2/game-2.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { NewPasswordComponent } from './components/new-password/new-password.com
     UserProfileComponent,
     ChangePasswordComponent,
     ForgottenPasswordComponent,
-    NewPasswordComponent
+    NewPasswordComponent,
+    SidebarComponent,
+    Game2Component,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

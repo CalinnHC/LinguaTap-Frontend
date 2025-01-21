@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: space-around;
     height: 100%;
+    width: 100vw;
 }
 form {
     display: flex;
@@ -63,6 +64,7 @@ button:disabled{
         justify-content: center;
         padding: 20px;
         height: auto;
+        box-sizing: border-box;
     }
 
     .home-content {

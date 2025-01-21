@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { WordService } from '../../words.service';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
@@ -15,15 +15,21 @@ export class Game1Component{
   word: string = '';
   displayedWord: string[] = [];
   currentGuess: string = '';
-  correctCount: number = 0;
-  errorsCount: number = 0;
   guessedLetters: boolean[] = [];
   gameOver: boolean = false;
   percentCount: number = 0;
+  correctCount: number = 0;
+  errorsCount: number = 0;
   goodAns: boolean = false;
   message: string = '';
+  alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  row1: string[] = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
+  row2: string[] = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ'];
+  row3: string[] = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
+  guessedLettersMap: { [key: string]: boolean } = {};
 
   constructor(private wordService: WordService, private router: Router, private apiService: ApiService) {
+    this.alphabet.forEach(char => (this.guessedLettersMap[char] = false));
     this.initializeGame();
   }
 
@@ -46,16 +52,27 @@ export class Game1Component{
     
   }
 
+  
+
   initializeGame() {
-    this.gameOver = false;
-    this.randomWord = this.wordService.getRandomWord();
-    this.word = this.randomWord.english;
-    this.displayedWord = Array(this.word.length).fill('_');
-    this.guessedLetters = Array(this.word.length).fill(false);
+    this.wordService.getData().subscribe({
+      next: () => {
+        this.gameOver = false;
+        this.randomWord = this.wordService.getRandomWord();
+        this.word = this.randomWord.english.toLowerCase();
+        this.displayedWord = Array(this.word.length).fill('_');
+        this.guessedLetters = Array(this.word.length).fill(false);
+        this.guessedLettersMap = {};
+        this.alphabet.forEach(char => (this.guessedLettersMap[char] = false));
+      },
+      error: (err) => {
+        console.error('Error loading words:', err);
+      }
+    });
   }
 
   isValidGuess(guess: string): boolean {
-    return /^[a-zA-Z]$/.test(guess) && !this.gameOver;
+    return /^[a-zA-Z]$/.test(guess);
   }
 
   checkGuess() {
@@ -94,7 +111,6 @@ export class Game1Component{
       this.goodAns = true;
     } else if (this.errorsCount >= 10) {
       this.gameOver = true;
-      alert(`¡Has perdido! La palabra correcta era: ${this.word}`);
       this.apiService.newScore(1, this.correctCount).subscribe({
         next: (response) => {
           console.log('Puntaje registrado:', response);
@@ -103,13 +119,52 @@ export class Game1Component{
           console.error('Error al registrar puntaje:', error);
         },
       });
-      this.correctCount = 0;
-      this.errorsCount = 0;
-      this.updatePercent();
-      this.initializeGame();
+      this.finishQuiz();
     }
   }
     navigateTo(route: string) {
       this.router.navigate([route]);
+    }
+
+    finishQuiz() {
+      this.router.navigate(["/result"], {
+        queryParams: {
+          percentage: this.percentCount,
+          correctAnswers: this.correctCount,
+          errors: this.errorsCount,
+          gameAns: this.word,
+          game: 1
+        },
+      });
+    }
+
+    onLetterClick(letter: string) {
+      if (this.isValidGuess(letter)) {
+        this.currentGuess = letter;
+        this.guessedLettersMap[letter] = true; // Marcar letra como usada
+        this.checkGuess();
+        this.checkGameOver();
+      }
+    }
+
+    onBackspace() {
+      // Lógica para manejar la acción de 'Borrar'
+      if (this.currentGuess) {
+        this.currentGuess = '';
+      }
+    }
+  
+    onEnter() {
+      // Lógica para manejar la acción de 'Enter'
+      if (this.isValidGuess(this.currentGuess)) {
+        this.checkGuess();
+        this.checkGameOver();
+      }
+    }
+
+    nextWord() {
+      this.initializeGame(); // Inicia una nueva palabra
+      this.goodAns = false;  // Desactiva la opción para continuar hasta adivinar la siguiente palabra
+      this.message = ''; // Limpiar el mensaje
     }
 }

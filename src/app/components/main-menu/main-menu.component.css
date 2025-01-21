@@ -1,74 +1,88 @@
-.sidebar {
-    height: 97.3%;
-    width: 250px;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    border-right: 2px solid #CBFA01;
-  }
-  
-  .sidebar a {
-    font-family: 'Alegreya Sans', medium;
-    font-weight:bold;
-    padding: 20px;
-    text-decoration: none;
-    font-size: 18px;
-    color: var(--text-color);
-    display: block;
-    text-align: center;
-  }
-  
-  .sidebar a:hover {
-    background-color: var(--button-color);
-  }
-  .Profile {
-    margin-top: auto; /* Empuja el enlace hacia el final */
-  }
-  .main{
-    background-color: var(--button-color);
-  }
-  .main-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 100%;
-  }
-  .games {
-    display: grid;
-    overflow-y: auto;
-    width:81%;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 16px;
+
+.games {
+  display: grid;
+  overflow-y: auto;
+  width: auto;
+  grid-template-columns: repeat(4, 1fr);
+  max-height: calc(100vh - 84px); 
+  gap: 20px;
+  padding: 16px;
+}
+.games-wrapper {
+  position: relative;
+  overflow: hidden; /* Oculta el contenido desbordado */
+}
+.games-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50px; /* Altura del difuminado */
+  pointer-events: none; /* Asegura que no interfiera con interacciones */
+  z-index: 1; /* Asegura que se superponga al contenido */
+}
+
+p{
+  font-size: 1.3rem;
 }
 
 .game-card {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
-    background-color: var(--cards-color);
-    border-radius: 32px; 
-    padding: 40px 0 40px 0;
-    text-align: center;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); 
-    transition: background-color 0.3s ease;
-}
-.game-card:hover {
-    background-color: #ffe08c;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--cards-color);
+  border-radius: 32px;
+  padding: 40px 0 40px 0;
+  text-align: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.game-card h3 {
-    font-family: 'Alegreya Sans', medium;
-    font-size: 30px;
-    margin: 0;
+.game-card:hover {
+  background-color: #ffe08c;
+  transform: translateY(-10px);
 }
+
+.inner-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.inner-div.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 .game-preview {
-    border-radius: 16px;
-    width: 90%;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.game-preview.hidden {
+  opacity: 0;
+}
+
+
+.game-card h3 {
+  font-family: 'Alegreya Sans', medium;
+  font-size: 30px;
+  margin: 0;
+}
+
+.game-preview {
+  border-radius: 16px;
+  width: 70%;
+}
+
+.button-bottom{
+  margin-top: auto;
 }
 
 
@@ -79,43 +93,14 @@
     max-width: 80%;
     height: auto;
     margin-bottom: 20px;
-}
+  }
 
-p {
+  p {
     margin: 0;
     padding: 0;
-}
-
-  .main-menu {
-    flex-direction: column;
+    font-size: 1rem;
   }
 
-
-  .sidebar {
-    width: 100%;
-    height: 58px;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-    border-right: none;
-    border-bottom: 2px solid #CBFA01;
-    justify-content: space-evenly;
-}
-
-  .sidebar a, .Profile {
-    height: 100%;
-    font-size: 16px;
-    text-align: center;
-    align-content: center;
-    padding: 10px 0 10px 0;
-    margin: 0;
-  }
-
-
-  .sidebar a:hover {
-    background-color: var(--button-color);
-  }
 
   .main {
     background-color: var(--button-color);
@@ -144,7 +129,8 @@ p {
   }
 
   .game-card h3 {
-    font-size: 24px; /* Ajuste del tamaño del título */
+    font-size: 24px;
+    /* Ajuste del tamaño del título */
     margin: 0;
   }
 
@@ -154,6 +140,5 @@ p {
     height: auto;
   }
 
-  
-}
 
+}

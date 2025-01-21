@@ -1,34 +1,43 @@
-h4{
+h4 {
   margin: 30px;
   font-family: 'Alegreya Sans', medium;
   font-size: 1.2rem;
-  font-weight:medium;
+  font-weight: medium;
 }
+
 input {
-    margin-top: 1rem;
-    font-size: 1rem;
-    padding: 0.5rem;
-  }
+  margin-top: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
 .game {
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    text-align: center;
-    height: 23%;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  margin-top: 30px;
+}
+
 .stats {
   display: flex;
   justify-content: center;
   gap: 20px;
+
 }
+
 h2 {
   font-size: 2.5rem;
   margin: 0;
   background-color: var(--stats-color);
   padding: 40px 10px;
-  width: 15%;
+  width: 15vw;
   color: var(--background-color);
   border-radius: 16px;
 }
+
 .game h1 {
   font-family: 'Alegreya Sans', medium;
   display: flex;
@@ -38,7 +47,7 @@ h2 {
   flex-wrap: wrap;
   gap: 5px;
   height: 100%;
-  gap: 40px; 
+  gap: 40px;
   text-transform: uppercase;
 }
 
@@ -46,20 +55,114 @@ h2 {
   display: inline-block;
   background-color: var(--cards-color);
   padding: 20px;
-  font-size: 65px;
-  width: 4%;
+  font-size: 4rem;
+  width: 3vw;
   border-radius: 8px;
 }
-h3{
+
+h3 {
   font-size: 65px;
   margin: 0;
   font-family: 'Alegreya Sans', medium;
-  font-weight:lighter;
+  font-weight: lighter;
   text-transform: uppercase;
 }
-/* Estilos generales ya proporcionados */
 
-@media (max-width: 768px) {
+.keyboard-format{
+  margin-top: 20px;
+}
+
+.keyboard{
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 7px;
+  justify-content: center;
+  margin-top: 20px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.lastButtons {
+  display: flex;
+  gap: 8px;
+  margin-top: 7px;
+  justify-content: center;
+  align-items: center;
+}
+
+.keyboard button {
+  width: 36px;
+  height: 54px;
+  font-size: 22px;
+  background-color: #505050;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.lastButtons button {
+  width: 36px;
+  height: 54px;
+  font-size: 22px;
+  background-color: #505050;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.keyboard button:hover:not([disabled]) {
+  background-color: #ddd;
+  transform: scale(1.1);
+}
+
+.lastButtons button:hover:not([disabled]) {
+  background-color: #ddd;
+  transform: scale(1.1);
+}
+
+.keyboard button:active {
+  transform: scale(0.9);
+}
+
+.keyboard button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.lastButtons button:active {
+  transform: scale(0.9);
+}
+
+.lastButtons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button-next {
+  margin-top: 20px;
+  font-size: 18px;
+  background-color: var(--line-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-next:hover {
+  background-color: var(--line-color);
+}
+
+.button-next:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+/* Estilos generales ya proporcionados */
+@media (max-width: 600px) {
   h4 {
     margin: 20px;
     font-size: 1.5rem;
@@ -71,8 +174,10 @@ h3{
   }
 
   .game {
-    height: auto; /* Ajustar altura para contenido dinámico */
+    height: auto;
+    /* Ajustar altura para contenido dinámico */
     padding: 10px;
+    box-sizing: border-box;
   }
 
   .game h1 {
@@ -82,30 +187,73 @@ h3{
   }
 
   .characters {
-    font-size: 2.5rem; /* Reducir tamaño de caracteres */
+    font-size: 1.5rem; /* Reducir tamaño de caracteres */
     padding: 10px;
-    width: 6%; /* Ajustar tamaño automáticamente */
+    width: 4vw; /* Ajustar tamaño automáticamente */
   }
 
   h3 {
-    font-size: 40px; /* Reducir tamaño del texto */
+    font-size: 40px;
+    /* Reducir tamaño del texto */
   }
 
   .stats {
-    flex-direction: column; /* Cambiar a diseño en columna */
-    gap: 10px; /* Reducir el espacio entre estadísticas */
+    display: flex;
+    flex-direction: row;
+    /* Cambiar a diseño en columna */
+    gap: 10px;
+    /* Reducir el espacio entre estadísticas */
   }
 
   h2 {
-    font-size: 1.5rem; /* Reducir tamaño del texto */
-    padding: 20px 5px; /* Ajustar relleno */
-    width: 90%; /* Ampliar el ancho */
-    margin: 10px auto; /* Centrar las estadísticas */
+    font-size: 1.5rem;
+    /* Reducir tamaño del texto */
+    padding: 20px 5px;
+    /* Ajustar relleno */
+    width: auto;
+    /* Ampliar el ancho */
+    margin: 10px auto;
+    /* Centrar las estadísticas */
   }
 
-  p {
-    font-size: 1rem; /* Ajustar tamaño del texto */
-    text-align: center; /* Centrar mensaje */
+  .keyboard button {
+    width: 28px;
+    height: 42px;
+    font-size: 22px;
   }
+
+  .lastButtons button {
+    width: 28px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  .keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 7px;
+    justify-content: center;
+    margin-top: 20px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .lastButtons {
+    display: flex;
+    gap: 8px;
+    margin-top: 7px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .keyboard {
+    gap: 5px;
+  }
+
+  .lastButtons {
+    gap: 5px;
+    margin-top: 5px;
+  }
+
 
 }

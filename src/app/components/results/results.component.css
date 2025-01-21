@@ -1,0 +1,25 @@
+.results-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    width: 100vw;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .score-section {
+    margin: 1.5rem 0;
+    font-size: 1.2rem;
+  }
+
+  .actions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  

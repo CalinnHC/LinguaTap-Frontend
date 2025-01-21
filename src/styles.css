@@ -7,11 +7,11 @@
     --button-color: #FFBC02;
     --cards-color: #FFEDBA;
     --stats-color: #65558F;
+    --line-color: #CBFA01;
   }
 
-  html,body{
+body{
     margin: 0;
-    height: 96%;
   }
 h2 {
     font-family: 'Alegreya Sans', medium;
@@ -49,7 +49,6 @@ input{
     border-width: 1px;
     padding: 0 5px 0 15px;
   }
-
 .no-style-button {
     all: unset;
     cursor: pointer;
@@ -61,3 +60,4 @@ input{
       height: auto;
     }
   }
+  

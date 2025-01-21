@@ -1,0 +1,30 @@
+<h4>Escoge la Correcta</h4>
+<div class="game">
+    <h3>{{ spanishWord }}</h3>
+    <div class="options">
+      <button
+        class="wordButton"
+        *ngFor="let option of options"
+        (click)="checkAnswer(option)"
+        [disabled]="selectedOption"
+        [ngClass]="{
+          'correct': option === correctOption && selectedOption,
+          'incorrect': option !== correctOption && selectedOption === option
+        }"
+      >
+        {{ option }}
+      </button>
+    </div>
+    
+    <div class="stats">
+        <h2>Porcentaje<br>{{ percentCount }}%</h2>
+    
+        <h2>Errores<br>{{ errorsCount }}/10</h2>
+        
+        <h2>Correctas<br>{{ correctCount }}</h2>
+      </div>
+      <button *ngIf="next" (click)="generateQuestion()">Siguiente</button>
+      <p>{{ message }}</p>
+      
+  </div>
+    

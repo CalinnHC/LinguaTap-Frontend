@@ -8,7 +8,12 @@ import { of } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:8081';
+  private baseUrl = 'https://ce4b-190-32-103-240.ngrok-free.app';
+  private headers = new HttpHeaders({'ngrok-skip-browser-warning': 'true'});
+  private showSidebar = new BehaviorSubject<boolean>(false);
+  showSidebar$ = this.showSidebar.asObservable();
+
+
   constructor(private http: HttpClient) {}
 
   //Login Service
@@ -16,6 +21,7 @@ export class ApiService {
     const body = { username, password };
     return this.http.post<any>(`${this.baseUrl}/login`, body);
   }
+  
   
   saveToken(token: string): void {
     if (this.isBrowser()) {
@@ -40,16 +46,18 @@ export class ApiService {
   //Profile Service
   changePassword(currentPassword: String, newPassword: string): Observable<any> {
     const id = this.getUserId();
-    const body = { id, currentPassword, newPassword };
-    return this.http.get<any>(`${this.baseUrl}/changePassword/${id}/${currentPassword}/${newPassword}`);
+    
+    return this.http.get<any>(`${this.baseUrl}/changePassword/${id}/${currentPassword}/${newPassword}`, { headers: this.headers });
   }
 
+  
   getUser(): Observable<any> {
-    const user_id = this.getUserId();
-    if (user_id == null){
-      return of(null);
-    }
-    return this.http.get<any>(`${this.baseUrl}/user/${this.getUserId()}`);
+  const user_id = this.getUserId();
+  if (user_id == null) {
+    return of(null);
+  }
+  console.log(`${this.baseUrl}/user/${user_id}`);
+  return this.http.get<any>(`${this.baseUrl}/user/${user_id}`, { headers: this.headers });
   }
 
   newUser(username: string, password: string, email: string, country: number) {
@@ -122,6 +130,11 @@ export class ApiService {
   
     return this.http.get<string>(url, { params, headers });
   }
+  
+  toggleSidebar(show: boolean) {
+    this.showSidebar.next(show);
+  }
+
   
 
 }

@@ -45,11 +45,11 @@ onRegister(): void {
   isFormValid(): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return (
-      !!this.email?.trim() && emailRegex.test(this.email) && // Verifica formato de correo
-      !!this.password?.trim() && // Verifica que la contraseña no esté vacía
-      !!this.username?.trim() && // Verifica que el nombre de usuario no esté vacío
-      this.country !== 0 && // Verifica que se seleccionó un país
-      !!this.check // Verifica que el checkbox esté marcao 
+      !!this.email?.trim() && emailRegex.test(this.email) && 
+      !!this.password?.trim() &&
+      !!this.username?.trim() &&
+      this.country !== 0 &&
+      !!this.check
     );
   }
   

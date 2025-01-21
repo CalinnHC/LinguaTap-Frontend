@@ -5,4 +5,8 @@
     <button *ngIf="!isLoggedIn" (click)="navigateTo('login')">Iniciar Sesión</button> 
   </div>
 </header>
-<router-outlet></router-outlet>
+<div class="side-content">
+  <app-sidebar *ngIf="showSidebar"></app-sidebar>
+  <router-outlet></router-outlet>
+</div>
+

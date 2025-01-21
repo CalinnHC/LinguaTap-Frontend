@@ -30,6 +30,7 @@
     align-items: center;
     justify-content: space-around;
     height: 100%;
+    width: 100vw;
 }
 form {
     display: flex;
@@ -52,6 +53,7 @@ h2 {
         justify-content: center;
         padding: 20px;
         height: auto;
+        box-sizing: border-box;
     }
 
     img {

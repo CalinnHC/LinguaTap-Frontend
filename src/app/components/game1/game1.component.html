@@ -1,17 +1,26 @@
-<h4>Una Palabra</h4>
 <div class="game">
-    <h3>{{randomWord?.spanish}}</h3>
-    <h1>
-      <span *ngFor="let char of displayedWord" class="characters">{{ char }}</span>
-    </h1>
-    <div class="stats">
-      <h2>Porcentaje<br>{{ percentCount }}%</h2>
-  
-      <h2>Errores<br>{{ errorsCount }}/10</h2>
-      
-      <h2>Correctas<br>{{ correctCount }}</h2>
-    </div>
-    <p>{{ message }}</p>
-    
+  <h3>{{ randomWord?.spanish }}</h3>
+  <h1>
+    <span *ngFor="let char of displayedWord" class="characters">{{ char }}</span>
+  </h1>
+  <div class="stats">
+    <h2>Porcentaje<br>{{ percentCount }}%</h2>
+    <h2>Errores<br>{{ errorsCount }}/10</h2>
+    <h2>Correctas<br>{{ correctCount }}</h2>
   </div>
   
+
+<div class="keyboard-format">
+  <div class="keyboard">
+    <button *ngFor="let char of row1" (click)="onLetterClick(char)" [disabled]="guessedLettersMap[char]">{{ char }}</button>
+    <button *ngFor="let char of row2" (click)="onLetterClick(char)" [disabled]="guessedLettersMap[char]">{{ char }}</button>
+  </div>
+  <div class="lastButtons">
+    <button *ngFor="let char of row3" (click)="onLetterClick(char)" [disabled]="guessedLettersMap[char]">{{ char }}</button>
+  </div>
+</div>
+<p>{{ message }}</p>
+<button *ngIf="goodAns" class="button-next" (click)="nextWord()">></button>
+  
+  
+</div>
