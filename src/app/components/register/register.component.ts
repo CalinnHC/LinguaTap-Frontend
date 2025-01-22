@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
+import { WordService } from '../../words.service';
 
 @Component({
   selector: 'app-register',
@@ -17,14 +18,20 @@ export class RegisterComponent {
   check: boolean = false;
   errorMessage: string = '';
   options = [
-    { value: '133', label: 'Panamá' },
-    { value: '2', label: 'USA' },
-    { value: '3', label: 'México' }
+    { value: '133', label: 'Panamá' }
   ];
 
-  constructor(private router: Router, private apiService: ApiService) {}
+  constructor(private router: Router, private apiService: ApiService, private wordsService: WordService) {
+    this.wordsService.getCountries().subscribe((data) => {
+      this.options = data.map((country: any) => ({
+        value: country.id_country,
+        label: country.country_name,
+      }));
+    });
+  }
 navigateTo(route: string) {
   this.router.navigate([route]);
+
 }
 
 onRegister(): void {
@@ -52,8 +59,5 @@ onRegister(): void {
       !!this.check
     );
   }
-  
-  
-
   
 }

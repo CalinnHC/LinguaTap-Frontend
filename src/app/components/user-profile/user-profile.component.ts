@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
+import { WordService } from '../../words.service';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,7 +16,7 @@ export class UserProfileComponent {
   email: string = 'email@example.com';
   country: string = 'Panamá';
 
-  constructor(private router: Router, private apiService: ApiService) {
+  constructor(private router: Router, private apiService: ApiService, private wordsService: WordService) {
     if (!apiService.isLoggedIn()) {
       this.navigateTo('/');
     }
@@ -31,10 +33,13 @@ export class UserProfileComponent {
   getUser(): void {
     this.apiService.getUser().subscribe({
       next: (response) => {
+        console.log(response);
         if (response) {
           this.username = response.username ?? 'Desconocido'; // Valor predeterminado
           this.email = response.email ?? 'No disponible';
-          this.country = response.country ?? 'No especificado';
+          this.getCountries(response.country).subscribe((country: string) => {
+            this.country = country;
+          });
         } else {
           console.warn('Response is empty or undefined');
         }
@@ -46,6 +51,16 @@ export class UserProfileComponent {
         console.log('User data fetching completed.');
       }
     });
+  }
+  
+
+  getCountries(id: number): Observable<string> {
+    return this.wordsService.getCountries().pipe(
+      map((data) => {
+        const country = data.find((country: any) => country.id_country === id);
+        return country ? country.country_name : 'Unknown';
+      })
+    );
   }
   
   ngOnInit() {

@@ -10,6 +10,9 @@
   </div>
   
 
+
+<p>{{ message }}</p>
+<button *ngIf="goodAns" class="button-next" (click)="nextWord()">></button>
 <div class="keyboard-format">
   <div class="keyboard">
     <button *ngFor="let char of row1" (click)="onLetterClick(char)" [disabled]="guessedLettersMap[char]">{{ char }}</button>
@@ -19,8 +22,4 @@
     <button *ngFor="let char of row3" (click)="onLetterClick(char)" [disabled]="guessedLettersMap[char]">{{ char }}</button>
   </div>
 </div>
-<p>{{ message }}</p>
-<button *ngIf="goodAns" class="button-next" (click)="nextWord()">></button>
-  
-  
 </div>

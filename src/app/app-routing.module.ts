@@ -13,6 +13,7 @@ import { ForgottenPasswordComponent } from './components/forgotten-password/forg
 import { NewPasswordComponent } from './components/new-password/new-password.component';
 import { Game2Component } from './components/game-2/game-2.component';
 import { ResultsComponent } from './components/results/results.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,canActivate: [noAuthGuard]},
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'forgotten-password', component: ForgottenPasswordComponent, canActivate: [noAuthGuard]},
   { path: 'new-password', component: NewPasswordComponent, canActivate: [noAuthGuard]},
   { path: 'result', component: ResultsComponent, canActivate: [authGuard]},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard]},
   { path: '**', redirectTo: '' },
 ];
 

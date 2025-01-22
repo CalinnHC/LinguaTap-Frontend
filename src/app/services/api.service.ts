@@ -8,7 +8,7 @@ import { of } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'https://ce4b-190-32-103-240.ngrok-free.app';
+  private baseUrl = 'http://localhost:8080';
   private headers = new HttpHeaders({'ngrok-skip-browser-warning': 'true'});
   private showSidebar = new BehaviorSubject<boolean>(false);
   showSidebar$ = this.showSidebar.asObservable();
@@ -46,7 +46,6 @@ export class ApiService {
   //Profile Service
   changePassword(currentPassword: String, newPassword: string): Observable<any> {
     const id = this.getUserId();
-    
     return this.http.get<any>(`${this.baseUrl}/changePassword/${id}/${currentPassword}/${newPassword}`, { headers: this.headers });
   }
 
@@ -59,6 +58,15 @@ export class ApiService {
   console.log(`${this.baseUrl}/user/${user_id}`);
   return this.http.get<any>(`${this.baseUrl}/user/${user_id}`, { headers: this.headers });
   }
+
+  getScoreByUser(): Observable<any> {
+    const user_id = this.getUserId();
+    if (user_id == null) {
+      return of(null);
+    }
+    console.log(`${this.baseUrl}/scoresbyid?id_user=94${user_id}`);
+    return this.http.get<any>(`${this.baseUrl}/scoresbyid?id_user=${user_id}`, { headers: this.headers });
+    }
 
   newUser(username: string, password: string, email: string, country: number) {
     const id_type: Number = 2;

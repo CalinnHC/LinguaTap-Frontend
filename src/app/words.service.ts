@@ -36,6 +36,10 @@ export class WordService {
     return this.words;
 
   }
+
+  getCountries(): Observable<any> {
+    return this.http.get<any>('countries.json'); 
+  }
   
 }
 

@@ -18,6 +18,7 @@ input {
   align-items: center;
   text-align: center;
   width: 100vw;
+  height: calc(100vh - 140px);
   margin-top: 30px;
 }
 
@@ -174,7 +175,7 @@ h3 {
   }
 
   .game {
-    height: auto;
+    height: calc(100vh - 143px);
     /* Ajustar altura para contenido dinámico */
     padding: 10px;
     box-sizing: border-box;
