@@ -53,6 +53,11 @@ export class Game1Component{
   }
 
   
+  get buttonNextClasses() {
+    return {
+      'visible': this.goodAns
+    };
+  }
 
   initializeGame() {
     this.wordService.getData().subscribe({

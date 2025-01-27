@@ -10,8 +10,7 @@
             <button (click)="navigateTo('game-1')" class="button-bottom">JUGAR</button>
         </div>
     
-        <div class="game-card" (mouseover)="onHover('card2')" (mouseleave)="onLeave('card2')"
-            [ngClass]="{'hovered': isHovered['card2']}">
+        <div class="game-card" (mouseover)="onHover('card2')" (mouseleave)="onLeave('card2')" [ngClass]="{'hovered': isHovered['card2']}">
             <h3>Escoge la Correcta</h3>
             <div class="inner-div" [ngClass]="{'visible': isHovered['card2']}">
                 <p>Selecciona la opción correcta en inglés para palabras en español. </p>
@@ -20,11 +19,15 @@
             <button (click)="navigateTo('game-2')" class="button-bottom">JUGAR</button>
         </div>
     
-        <div class="game-card">
-            <h3>Proximamente...</h3>
-            <img src="game-ex.png" class="game-preview" />
-            <button (click)="navigateTo('')">JUGAR</button>
+        <div class="game-card" (mouseover)="onHover('card3')" (mouseleave)="onLeave('card3')" [ngClass]="{'hovered': isHovered['card2']}">
+            <h3>Verbos Irregulares</h3>
+            <div class="inner-div" [ngClass]="{'visible': isHovered['card3']}">
+                <p>El minijuego reta al jugador a escribir correctamente el Past Simple y el Past Participle de verbos en inglés.</p>
+            </div>
+            <img src="3.png" class="game-preview" [ngClass]="{'hidden': isHovered['card3']}" />
+            <button (click)="navigateTo('game-3')" class="button-bottom">JUGAR</button>
         </div>
+
         <div class="game-card">
             <h3>Proximamente...</h3>
             <img src="game-ex.png" class="game-preview" />

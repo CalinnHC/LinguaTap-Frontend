@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'LinguaTapSite';
   isLoggedIn: boolean = false;
   showSidebar: boolean = false;
+  isDarkTheme = false;
   
   constructor(private router: Router, public apiService: ApiService) {
   }
@@ -30,6 +31,19 @@ export class AppComponent {
       this.isLoggedIn = currentLoginStatus;
     }
     this.showSidebar = this.apiService['showSidebar'].value;
+  }
+
+  
+
+  toggleTheme(): void {
+    this.isDarkTheme = !this.isDarkTheme;
+    const body = document.body;
+
+    if (this.isDarkTheme) {
+      body.classList.add('dark-theme');
+    } else {
+      body.classList.remove('dark-theme');
+    }
   }
 
 }

@@ -17,6 +17,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { Game2Component } from './components/game-2/game-2.component';
 import { ResultsComponent } from './components/results/results.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { Game3Component } from './components/game-3/game-3.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SidebarComponent,
     Game2Component,
     ResultsComponent,
-    DashboardComponent
+    DashboardComponent,
+    Game3Component
   ],
   imports: [
     BrowserModule,

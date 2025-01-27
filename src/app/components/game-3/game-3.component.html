@@ -1,0 +1,37 @@
+<div class="quiz-container">
+    <h1>Adivina la forma Verbal</h1>
+    <div *ngIf="!gameOver" class="inputs-container">
+      <h3>{{ currentVerb.Base }}</h3>
+      <div class="past-container">
+        <label for="past-simple">Past Simple:</label>
+        <input id="past-simple" [(ngModel)]="userAnswer.simple" type="text" autocomplete="off"/>
+        <p class="alert" [ngClass]="{'correct': isSimpleCorrect, 'incorrect': !isSimpleCorrect}">{{ feedbackPastSimple }}</p>
+      </div>
+      
+      <div class="past-container">
+        <label for="past-participle">Past Participle:</label>
+        <input id="past-participle" [(ngModel)]="userAnswer.participle" type="text" autocomplete="off"/>
+        <p class="alert" [ngClass]="{'correct': isParticipleCorrect, 'incorrect': !isParticipleCorrect}">{{ feedbackPastParticiple }}</p>
+        </div>
+      
+        <button 
+        class="button-next" 
+        (click)="checkAnswer()" 
+        [disabled]="!isNextButtonEnabled">
+        >
+      </button>
+      
+    </div>
+    <div class="stats">
+      <h2>Porcentaje<br>{{ percentCount }}%</h2>
+  
+      <h2>Errores<br>{{ errorsCount }}/10</h2>
+      
+      <h2>Correctas<br>{{ correctCount }}</h2>
+    </div>
+    <div *ngIf="gameOver">
+      <h2>Game Over!</h2>
+      <p>Your score: {{ score }}/{{ verbs.length }}</p>
+      <button (click)="restartGame()">Play Again</button>
+    </div>
+  </div>

@@ -14,6 +14,7 @@ import { NewPasswordComponent } from './components/new-password/new-password.com
 import { Game2Component } from './components/game-2/game-2.component';
 import { ResultsComponent } from './components/results/results.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { Game3Component } from './components/game-3/game-3.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,canActivate: [noAuthGuard]},
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'new-password', component: NewPasswordComponent, canActivate: [noAuthGuard]},
   { path: 'result', component: ResultsComponent, canActivate: [authGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard]},
+  { path: 'game-3', component: Game3Component},
   { path: '**', redirectTo: '' },
 ];
 

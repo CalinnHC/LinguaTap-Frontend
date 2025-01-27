@@ -10,6 +10,15 @@
     --line-color: #CBFA01;
   }
 
+  .dark-theme {
+    --background-color: #141616;
+    --text-color: #FAFCFC;
+    --button-color: #FFBC02;
+    --cards-color: #4D4D4D;
+    --stats-color: #65558F;
+    --line-color: #CBFA01;
+  }
+
 body{
     margin: 0;
   }

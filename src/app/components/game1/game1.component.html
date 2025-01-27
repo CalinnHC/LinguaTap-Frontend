@@ -1,3 +1,4 @@
+
 <div class="game">
   <h3>{{ randomWord?.spanish }}</h3>
   <h1>
@@ -8,11 +9,8 @@
     <h2>Errores<br>{{ errorsCount }}/10</h2>
     <h2>Correctas<br>{{ correctCount }}</h2>
   </div>
-  
-
-
 <p>{{ message }}</p>
-<button *ngIf="goodAns" class="button-next" (click)="nextWord()">></button>
+<button [ngClass]="buttonNextClasses" class="button-next" (click)="nextWord()">></button>
 <div class="keyboard-format">
   <div class="keyboard">
     <button *ngFor="let char of row1" (click)="onLetterClick(char)" [disabled]="guessedLettersMap[char]">{{ char }}</button>

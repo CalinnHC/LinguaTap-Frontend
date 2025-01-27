@@ -160,6 +160,18 @@ h3 {
   background-color: #ccc;
   cursor: not-allowed;
 }
+.button-next {
+  opacity: 0; /* El botón será invisible */
+  pointer-events: none; /* Desactiva interacción */
+}
+
+.button-next.visible {
+  opacity: 1; /* Hace el botón visible cuando se agrega la clase "visible" */
+  pointer-events: auto; /* Permite interacción */
+}
+p {
+  min-height: 1em; /* Define la altura mínima del texto */
+}
 
 
 /* Estilos generales ya proporcionados */

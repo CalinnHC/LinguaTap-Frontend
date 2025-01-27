@@ -60,10 +60,6 @@ p{
   visibility: visible;
 }
 
-.game-preview {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
 
 .game-preview.hidden {
   opacity: 0;
@@ -79,6 +75,8 @@ p{
 .game-preview {
   border-radius: 16px;
   width: 70%;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .button-bottom{
