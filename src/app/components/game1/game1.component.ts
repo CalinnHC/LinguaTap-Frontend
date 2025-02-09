@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { WordService } from '../../words.service';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
+import { ErrorReportComponent } from '../error-report/error-report.component';
 
 @Component({
   selector: 'app-game1',
@@ -27,6 +28,9 @@ export class Game1Component{
   row2: string[] = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ'];
   row3: string[] = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
   guessedLettersMap: { [key: string]: boolean } = {};
+  showReport = false;
+
+  
 
   constructor(private wordService: WordService, private router: Router, private apiService: ApiService) {
     this.alphabet.forEach(char => (this.guessedLettersMap[char] = false));
@@ -44,7 +48,7 @@ export class Game1Component{
         this.initializeGame();
       }
     }
-    else if (this.isValidGuess(guess)) {
+    else if (this.isValidGuess(guess) && !this.showReport) {
       this.currentGuess = guess;
       this.checkGuess();
       this.checkGameOver();
@@ -78,6 +82,14 @@ export class Game1Component{
 
   isValidGuess(guess: string): boolean {
     return /^[a-zA-Z]$/.test(guess);
+  }
+
+  abrirReporte() {
+    this.showReport = true;
+  }
+
+  cerrarReporte() {
+    this.showReport = false;
   }
 
   checkGuess() {
@@ -144,7 +156,7 @@ export class Game1Component{
     }
 
     onLetterClick(letter: string) {
-      if (this.isValidGuess(letter)) {
+      if (this.isValidGuess(letter) && !this.showReport) {
         this.currentGuess = letter;
         this.guessedLettersMap[letter] = true; // Marcar letra como usada
         this.checkGuess();

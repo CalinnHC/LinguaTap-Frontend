@@ -1,0 +1,24 @@
+<div class="p-4">
+  <h1>Diccionario Interactivo</h1>
+  <input
+    [(ngModel)]="searchText"
+    type="text"
+    placeholder="Buscar Palabra..."
+    class="search-input"
+  />
+  <div class="words-grid">
+    <div *ngFor="let item of filteredWords" class="word-pair">
+      <h2 class="word">{{ item.word }}</h2>
+      <p class="translation">{{ item.spanish.join(', ') }}</p>
+    </div>
+  </div>
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
+    <span>{{ currentPage }}</span>
+    <button (click)="nextPage()" [disabled]="!canGoToNextPage()">
+      Next
+    </button>
+  </div>
+</div>

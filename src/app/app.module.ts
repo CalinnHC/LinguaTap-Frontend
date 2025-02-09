@@ -18,6 +18,10 @@ import { Game2Component } from './components/game-2/game-2.component';
 import { ResultsComponent } from './components/results/results.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { Game3Component } from './components/game-3/game-3.component';
+import { DictionaryComponent } from './components/dictionary/dictionary.component';
+import { IrregularVerbsComponent } from './components/irregular-verbs/irregular-verbs.component';
+import { ErrorReportComponent } from './components/error-report/error-report.component';
+import { error } from 'console';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,10 @@ import { Game3Component } from './components/game-3/game-3.component';
     Game2Component,
     ResultsComponent,
     DashboardComponent,
-    Game3Component
+    Game3Component,
+    DictionaryComponent,
+    IrregularVerbsComponent,
+    ErrorReportComponent
   ],
   imports: [
     BrowserModule,

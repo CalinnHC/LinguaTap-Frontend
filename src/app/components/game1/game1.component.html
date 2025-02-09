@@ -21,3 +21,5 @@
   </div>
 </div>
 </div>
+<button (click)="abrirReporte()" class="errorButton">Reportar Error</button>
+<app-error-report *ngIf="showReport" (closeReport)="cerrarReporte()"></app-error-report>

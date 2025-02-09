@@ -21,6 +21,8 @@ export class ApiService {
     const body = { username, password };
     return this.http.post<any>(`${this.baseUrl}/login`, body);
   }
+
+  
   
   
   saveToken(token: string): void {
@@ -83,6 +85,16 @@ export class ApiService {
     const body = { id_game, user_id, score };
     console.log(body);
     return this.http.post<any>(`${this.baseUrl}/score`, body);
+  }
+
+  newReport(description: string): Observable<any> {
+    const user_id = this.getUserId();
+    if (user_id == null){
+      return of(null);
+    }
+    const body = { user_id, description };
+    console.log(body);
+    return this.http.post<any>(`${this.baseUrl}/report`, body);
   }
 
 

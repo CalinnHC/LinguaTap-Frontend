@@ -1,0 +1,35 @@
+<div class="p-4">
+  <h1>Verbos Irregulares</h1>
+  <input 
+    type="text" 
+    [(ngModel)]="searchTerm" 
+    (input)="filterVerbs()" 
+    placeholder="Buscar verbo..."
+    class="search-input"/>
+  
+      <div class="words-grid">
+      <div class="word-title">
+        <p >Base</p>
+        <p >Past Simple</p>
+        <p >Past Participle</p>
+      </div>
+        <div *ngFor="let item of displayedVerbs" class="word-pair">
+          <h2 class="word">{{ item.Base }}</h2>
+          <p class="translation">{{ item['Past-simple'] }}</p>
+          <p class="translation">{{ item['Past-Participle'] }}</p>
+        </div>
+      </div>
+  
+  <div class="pagination">
+    <button 
+      (click)="prevPage()" 
+      [disabled]="currentPage === 0" >
+      Anterior
+    </button>
+    <button 
+      (click)="nextPage()" 
+      [disabled]="currentPage >= maxPage" >
+      Siguiente
+    </button>
+  </div>
+</div>

@@ -173,6 +173,18 @@ p {
   min-height: 1em; /* Define la altura mínima del texto */
 }
 
+.errorButton {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1; /* Asegura que esté por encima de otros elementos */
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 
 /* Estilos generales ya proporcionados */
 @media (max-width: 600px) {

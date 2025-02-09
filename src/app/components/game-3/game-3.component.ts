@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { WordService } from '../../words.service';
 import { ApiService } from '../../services/api.service';
+import { ErrorReportComponent } from '../error-report/error-report.component';
 
 @Component({
   selector: 'app-game-3',
@@ -30,6 +31,7 @@ export class Game3Component {
   isChecked = false;
   isParticipleCorrect = false;
   isSimpleCorrect = false;
+  showReport = false;
 
   constructor(private wordService:WordService, private apiService:ApiService, private router: Router){
 
@@ -38,7 +40,26 @@ export class Game3Component {
   ngOnInit(): void {
     this.nextVerb();
   }
+
+  @HostListener('document:keydown', ['$event'])
+    handleKeyboardEvent(event: KeyboardEvent) {
+      const guess = event.key.toLowerCase();
+      if(this.userAnswer.simple.trim() !== '' && this.userAnswer.participle.trim() !== ''){
+        if (guess === 'enter' ) {
+          this.checkAnswer();
+        }
+      }
+    }
   
+
+    abrirReporte() {
+      this.showReport = true;
+    }
+  
+    cerrarReporte() {
+      this.showReport = false;
+    }
+
   checkAnswer() {
     if (!this.isChecked) {
       const { simple, participle } = this.userAnswer;

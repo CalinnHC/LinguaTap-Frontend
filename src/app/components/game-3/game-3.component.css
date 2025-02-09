@@ -101,6 +101,19 @@ button.button-next:disabled {
   color: #666666;
   cursor: not-allowed;
 }
+
+.errorButton {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1; /* Asegura que esté por encima de otros elementos */
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .quiz-container {
     gap: 20px;
@@ -147,6 +160,7 @@ h2 {
 p {
   min-height: 20px;
 }
+
 
  
 

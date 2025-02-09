@@ -1,12 +1,24 @@
-<header>
-  <a href="/" class="title"><img class="title-logo" src="LinguaTapLogo.png" alt="LinguaTap Logo" />LinguaTap</a>
-  <div class="nav-buttons">
-    <button *ngIf="!isLoggedIn" (click)="navigateTo('register')">Registrarse</button>
-    <button *ngIf="!isLoggedIn" (click)="navigateTo('login')">Iniciar Sesión</button> 
+<div class="scroll-container">
+  <header>
+    <a href="/" class="title"><img class="title-logo" src="LinguaTapLogo.png" alt="LinguaTap Logo" />LinguaTap</a>
+    <div class="nav-buttons">
+      <button *ngIf="!isLoggedIn" (click)="navigateTo('register')">Registrarse</button>
+      <button *ngIf="!isLoggedIn" (click)="navigateTo('login')">Iniciar Sesión</button> 
+    </div>
+  </header>
+  <div class="side-content">
+    <app-sidebar *ngIf="showSidebar"></app-sidebar>
+    <router-outlet></router-outlet>
   </div>
-</header>
-<div class="side-content">
-  <app-sidebar *ngIf="showSidebar"></app-sidebar>
-  <router-outlet></router-outlet>
+  <footer>
+    <div class="footer-container">
+        <p>&copy; 2025 LinguaTap. Todos los derechos reservados.</p>
+        <nav>
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </div>
+  </footer>
 </div>
 

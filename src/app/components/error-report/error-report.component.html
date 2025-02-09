@@ -1,0 +1,10 @@
+<div class="modal">
+  <div class="modal-content">
+    <h2>Reporte de Errores</h2>
+    <textarea [(ngModel)]="errorReporte" placeholder="Describe el error..." rows="4"></textarea>
+    <div class="ErrorButtons">
+      <button (click)="cerrar()" class="cancel">Cancelar</button>
+      <button (click)="enviarReporte()">Enviar</button>
+    </div>
+  </div>
+</div>

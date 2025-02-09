@@ -42,6 +42,15 @@ export class WordService {
       })
     );
   }
+
+  getAllIrregularVerb(): Observable<{ Base: string; 'Past-simple': string; 'Past-Participle': string }> {
+    return this.getIrregularVerbs().pipe(
+      map((data: any) => {
+        const verbs = data.verbs;
+        return verbs; // Retorna un verbo aleatorio
+      })
+    );
+  }
   
 
   getRandomWord(): { english: string, spanish: string } {

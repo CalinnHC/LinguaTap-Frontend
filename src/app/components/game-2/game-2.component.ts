@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { WordService } from '../../words.service';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { ErrorReportComponent } from '../error-report/error-report.component';
 
 @Component({
   selector: 'app-game-2',
@@ -22,6 +23,7 @@ export class Game2Component implements OnInit {
   next: boolean = false;
   gameOver: boolean = false;
   selectedOption: string | null = null;
+  showReport = false;
 
 
   constructor(private wordService: WordService, private apiService: ApiService, private router: Router) {}
@@ -31,6 +33,15 @@ export class Game2Component implements OnInit {
       next: () => this.generateQuestion(),
       error: (err) => console.error('Error loading words:', err)
     });
+  }
+
+
+  abrirReporte() {
+    this.showReport = true;
+  }
+
+  cerrarReporte() {
+    this.showReport = false;
   }
 
   generateQuestion(): void {

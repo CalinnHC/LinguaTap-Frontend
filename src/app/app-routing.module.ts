@@ -15,6 +15,8 @@ import { Game2Component } from './components/game-2/game-2.component';
 import { ResultsComponent } from './components/results/results.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { Game3Component } from './components/game-3/game-3.component';
+import { DictionaryComponent } from './components/dictionary/dictionary.component';
+import { IrregularVerbsComponent } from './components/irregular-verbs/irregular-verbs.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,canActivate: [noAuthGuard]},
@@ -30,6 +32,8 @@ const routes: Routes = [
   { path: 'result', component: ResultsComponent, canActivate: [authGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard]},
   { path: 'game-3', component: Game3Component},
+  { path: 'dictionary', component: DictionaryComponent},
+  { path: 'irregularVerbs', component: IrregularVerbsComponent},
   { path: '**', redirectTo: '' },
 ];
 
