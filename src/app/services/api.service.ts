@@ -57,7 +57,6 @@ export class ApiService {
   if (user_id == null) {
     return of(null);
   }
-  console.log(`${this.baseUrl}/user/${user_id}`);
   return this.http.get<any>(`${this.baseUrl}/user/${user_id}`, { headers: this.headers });
   }
 
@@ -66,7 +65,6 @@ export class ApiService {
     if (user_id == null) {
       return of(null);
     }
-    console.log(`${this.baseUrl}/scoresbyid?id_user=94${user_id}`);
     return this.http.get<any>(`${this.baseUrl}/scoresbyid?id_user=${user_id}`, { headers: this.headers });
     }
 
@@ -78,12 +76,12 @@ export class ApiService {
   
 
   newScore(id_game: number, score: number): Observable<any> {
+    console.log("Paso");
     const user_id = this.getUserId();
     if (user_id == null){
       return of(null);
     }
     const body = { id_game, user_id, score };
-    console.log(body);
     return this.http.post<any>(`${this.baseUrl}/score`, body);
   }
 
@@ -93,7 +91,6 @@ export class ApiService {
       return of(null);
     }
     const body = { user_id, description };
-    console.log(body);
     return this.http.post<any>(`${this.baseUrl}/report`, body);
   }
 
@@ -108,7 +105,6 @@ export class ApiService {
     if (token) {
       try {
         const decodedToken: any = jwtDecode(token);
-        console.log(decodedToken.sub);
         
         // Verifica si 'sub' es un número y retorna ese valor, o maneja el caso si no es válido.
         const userId = Number(decodedToken.sub);
@@ -146,8 +142,6 @@ export class ApiService {
     const url = `${this.baseUrl}/NewPassword`;
     const params = { token, newPassword };
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    console.log("Sending: " + token + " and " + newPassword);
-  
     return this.http.get<string>(url, { params, headers });
   }
   

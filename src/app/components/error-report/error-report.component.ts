@@ -26,7 +26,6 @@ export class ErrorReportComponent {
   saveReport(){
     this.apiService.newReport(this.errorReporte).subscribe({
       next: (response) => {
-        console.log('Reporte Enviado', response);
         this.cerrar();
       },
       error: (error) => {

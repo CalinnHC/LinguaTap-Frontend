@@ -17,6 +17,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { Game3Component } from './components/game-3/game-3.component';
 import { DictionaryComponent } from './components/dictionary/dictionary.component';
 import { IrregularVerbsComponent } from './components/irregular-verbs/irregular-verbs.component';
+import { PrivacyPolicyComponent } from './legal/privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from './legal/terms-and-conditions/terms-and-conditions.component';
+import { ContactComponent } from './legal/contact/contact.component';
+import { Game4Component } from './components/game-4/game-4.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,canActivate: [noAuthGuard]},
@@ -34,6 +38,10 @@ const routes: Routes = [
   { path: 'game-3', component: Game3Component},
   { path: 'dictionary', component: DictionaryComponent},
   { path: 'irregularVerbs', component: IrregularVerbsComponent},
+  { path: 'privacy-policy', component: PrivacyPolicyComponent},
+  { path: 'contact', component: ContactComponent},
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent},
+  { path: 'game-4', component: Game4Component},
   { path: '**', redirectTo: '' },
 ];
 

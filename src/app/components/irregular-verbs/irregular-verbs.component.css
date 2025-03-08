@@ -10,7 +10,12 @@
     font-family: 'Alegreya Sans', medium;
     
   }
-  
+  h1{
+    color: var(--text-color);
+  }
+  p{
+    color: var(--text-color);
+  }
   .search-input {
     width: 60%;
     padding: 10px;
@@ -36,7 +41,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: var(--cards-color);
   }
 
   .word-title{
@@ -49,11 +54,11 @@
   
   .word {
     font-weight: bold;
-    color: #333;
+    color: var(--text-color);
   }
   
   .translation {
-    color: #666;
+    color: var(--text-color);
   }
   
   .pagination {

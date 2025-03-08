@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100vw;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+}
+form{
+    width: 80vw;
+}
+
+h1 {
+    text-align: center;
+    color: var(--text-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+
+
+button:disabled {
+    background-color: #ccc;
+}
+
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.confirmation-message {
+    margin-top: 20px;
+    text-align: center;
+    color: green;
+}
+
+textarea{
+    resize: none;
+}

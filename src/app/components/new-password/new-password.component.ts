@@ -29,7 +29,6 @@ export class NewPasswordComponent {
   ngOnInit(): void {
     const token = this.route.snapshot.queryParams['token'];
     this.tokenString = token;
-    console.log(token);
     if (!token) {
       this.router.navigate(["/"]);
       return;
@@ -40,10 +39,8 @@ export class NewPasswordComponent {
   verifyToken(token: string): void {
     this.apiService.confirmNewPasswordToken(token).subscribe({
       next: (response) => {
-        console.log("Exito");
       },
       error: (err) => {
-        console.log(err);
         this.errorMessage = err.error.message || 'Error al verificar el token.';
         this.router.navigate(["/"]);
       }

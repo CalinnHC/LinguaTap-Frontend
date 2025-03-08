@@ -1,0 +1,51 @@
+/* Estilos generales */
+.privacy-policy-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    max-height: calc(100vh - 84px); 
+    width: 100vw;
+  }
+  .title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #34495e;
+  }
+  .text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  .list {
+    padding-left: 20px;
+  }
+  
+  .list li {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .contact {
+    font-weight: bold;
+    color: #2980b9;
+  }
+  .acceptance {
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+  }
+  @media (max-width: 768px) {
+    .privacy-policy-container {
+        padding: 0;
+      }
+  }

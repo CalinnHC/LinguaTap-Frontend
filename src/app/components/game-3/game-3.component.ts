@@ -105,8 +105,6 @@ export class Game3Component {
     this.wordService.getRandomIrregularVerb().subscribe((randomVerb) => {
       this.currentVerb = randomVerb;
     });
-    console.log(this.currentVerb["Past-simple"] )
-    console.log(this.currentVerb["Past-Participle"] )
   }
 
   restartGame() {
@@ -138,7 +136,6 @@ export class Game3Component {
     if (this.errorsCount >= 10) {
       this.apiService.newScore(3, this.correctCount).subscribe({
         next: (response) => {
-          console.log('Puntaje registrado:', response);
         },
         error: (error) => {
           console.error('Error al registrar puntaje:', error);

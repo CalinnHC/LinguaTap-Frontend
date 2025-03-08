@@ -1,0 +1,87 @@
+
+
+/* Contenedor principal */
+.terms-container {
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    overflow-y: auto;
+    max-height: calc(100vh - 84px); 
+    width: 100vw;
+}
+
+/* Título principal */
+.title {
+    font-size: 2.5em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Fecha de entrada en vigencia */
+.date {
+    font-size: 1.1em;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.date span {
+    font-weight: bold;
+}
+
+/* Introducción */
+.intro {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Títulos de sección */
+.section-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    text-decoration: underline;
+}
+
+/* Texto dentro de las secciones */
+.text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Enlaces */
+.link {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Sección de contacto */
+.contact {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Aceptación de los términos */
+.acceptance {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* Espaciado adicional entre párrafos */
+p {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .terms-container {
+        padding: 0;
+      }
+  }

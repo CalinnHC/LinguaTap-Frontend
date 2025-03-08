@@ -22,6 +22,10 @@ import { DictionaryComponent } from './components/dictionary/dictionary.componen
 import { IrregularVerbsComponent } from './components/irregular-verbs/irregular-verbs.component';
 import { ErrorReportComponent } from './components/error-report/error-report.component';
 import { error } from 'console';
+import { TermsAndConditionsComponent } from './legal/terms-and-conditions/terms-and-conditions.component';
+import { ContactComponent } from './legal/contact/contact.component';
+import { PrivacyPolicyComponent } from './legal/privacy-policy/privacy-policy.component';
+import { Game4Component } from './components/game-4/game-4.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,11 @@ import { error } from 'console';
     Game3Component,
     DictionaryComponent,
     IrregularVerbsComponent,
-    ErrorReportComponent
+    ErrorReportComponent,
+    TermsAndConditionsComponent,
+    ContactComponent,
+    PrivacyPolicyComponent,
+    Game4Component
   ],
   imports: [
     BrowserModule,

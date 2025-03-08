@@ -31,6 +31,7 @@ img {
 }
 h2 {
     text-align: center;
+    color: var(--text-color);
 }
 select option:disabled {
     color: gray; /* Un color gris claro para el placeholder */
@@ -56,6 +57,15 @@ button:disabled{
     color: #a9a9a9;
     cursor: not-allowed;
 }
+.Logo{
+    background-color:var(--cards-color);
+    border-radius: 50%;
+    padding: 20px;
+}
+label, p{
+    color: var(--text-color);
+}
+
 
 /* Estilos responsivos para la página de restablecimiento de contraseña y registro en dispositivos móviles */
 @media (max-width: 768px) {

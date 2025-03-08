@@ -106,7 +106,6 @@ export class Game2Component implements OnInit {
     if (this.errorsCount >= 10) {
       this.apiService.newScore(2, this.correctCount).subscribe({
         next: (response) => {
-          console.log('Puntaje registrado:', response);
         },
         error: (error) => {
           console.error('Error al registrar puntaje:', error);

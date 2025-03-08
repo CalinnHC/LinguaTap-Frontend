@@ -37,7 +37,6 @@ navigateTo(route: string) {
 onRegister(): void {
   this.apiService.newUser(this.username, this.password, this.email, this.country).subscribe({
     next: (response) => {
-      console.log('Registro exitoso:', response);
       this.errorMessage = ''; // Limpia cualquier error previo
       this.navigateTo('/');
     },

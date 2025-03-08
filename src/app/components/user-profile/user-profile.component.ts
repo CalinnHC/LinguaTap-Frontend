@@ -33,7 +33,6 @@ export class UserProfileComponent {
   getUser(): void {
     this.apiService.getUser().subscribe({
       next: (response) => {
-        console.log(response);
         if (response) {
           this.username = response.username ?? 'Desconocido'; // Valor predeterminado
           this.email = response.email ?? 'No disponible';

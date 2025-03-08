@@ -1,0 +1,37 @@
+<div class="game-container">
+  <h4>Pareo de Palabras</h4>
+
+  <div class="columns">
+    <div class="column">
+      <h4>Inglés</h4>
+      <button *ngFor="let word of shuffledEnglish" (click)="selectEnglish(word)" 
+              [class.selected]="word === selectedEnglish"
+              [class.matched]="isMatched(word)">
+        {{ word }}
+      </button>
+    </div>
+    
+    <div class="column">
+      <h4>Español</h4>
+      <button *ngFor="let word of shuffledSpanish" (click)="selectSpanish(word)" 
+              [class.selected]="word === selectedSpanish"
+              [class.matched]="isMatched(word)">
+        {{ word }}
+      </button>
+    </div>
+    
+  </div>
+  <button 
+  class="button-next" 
+  (click)="loadWords()" 
+  [style.visibility]="shouldShowNextButton() ? 'visible' : 'hidden'">
+  >>
+</button>
+  <div class="stats">
+    <h2>Porcentaje<br>{{ percentCount }}%</h2>
+
+    <h2>Errores<br>{{ errorsCount }}/10</h2>
+    
+    <h2>Correctas<br>{{ correctCount }}</h2>
+  </div>
+</div>

@@ -2,12 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
 
 :root {
-    --background-color: #FAFCFC;
-    --text-color: #141616;
-    --button-color: #FFBC02;
-    --cards-color: #FFEDBA;
-    --stats-color: #65558F;
-    --line-color: #CBFA01;
+  --background-color: #141616;
+  --text-color: #FAFCFC;
+  --button-color: #FFBC02;
+  --cards-color: #4D4D4D;
+  --cards-hover-color: #797979;
+  --stats-color: #65558F;
+  --line-color: #ceff1f;
   }
 
   .dark-theme {
@@ -15,12 +16,23 @@
     --text-color: #FAFCFC;
     --button-color: #FFBC02;
     --cards-color: #4D4D4D;
+    --cards-hover-color: #797979;
+    --stats-color: #65558F;
+    --line-color: #ceff1f;
+  }
+  .light-theme {
+    --background-color: #FAFCFC;
+    --text-color: #141616;
+    --button-color: #FFBC02;
+    --cards-hover-color: #ffd359;
+    --cards-color: #FFEDBA;
     --stats-color: #65558F;
     --line-color: #CBFA01;
   }
 
 body{
     margin: 0;
+    background-color: var(--background-color);
   }
 h2 {
     font-family: 'Alegreya Sans', medium;
@@ -35,7 +47,7 @@ p {
 
 button {
     background-color: var(--button-color);
-    color: var(--background-color);
+    color: var(--text-color);
     font-family: 'Jersey', sans-serif;
     font-size: 15px; 
     font-weight: bold; 

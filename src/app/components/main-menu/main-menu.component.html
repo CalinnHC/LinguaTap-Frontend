@@ -28,20 +28,14 @@
             <button (click)="navigateTo('game-3')" class="button-bottom">JUGAR</button>
         </div>
 
-        <div class="game-card">
-            <h3>Proximamente...</h3>
-            <img src="game-ex.png" class="game-preview" />
-            <button (click)="navigateTo('')">JUGAR</button>
-        </div>
-        <div class="game-card">
-            <h3>Proximamente...</h3>
-            <img src="game-ex.png" class="game-preview" />
-            <button (click)="navigateTo('')">JUGAR</button>
-        </div>
-        <div class="game-card">
-            <h3>Proximamente...</h3>
-            <img src="game-ex.png" class="game-preview" />
-            <button (click)="navigateTo('')">JUGAR</button>
+        <div class="game-card" (mouseover)="onHover('card4')" (mouseleave)="onLeave('card4')"
+            [ngClass]="{'hovered': isHovered['card4']}">
+            <h3>Pareo</h3>
+            <div class="inner-div" [ngClass]="{'visible': isHovered['card4']}">
+                <p>Aparecerán palabras en ambos idiomas, y el jugador deberá hacer clic en las parejas correctas.</p>
+            </div>
+            <img src="4.png" class="game-preview" [ngClass]="{'hidden': isHovered['card4']}" />
+            <button (click)="navigateTo('game-4')" class="button-bottom">JUGAR</button>
         </div>
         <div class="game-card">
             <h3>Proximamente...</h3>

@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Contacto</h1>
+    <form (submit)="enviarReporte($event)">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" [(ngModel)]="nombre" name="name" required>
+        
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" required>
+
+        <label for="message">Mensaje:</label>
+        <textarea id="message" [(ngModel)]="errorReporte" name="message" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div *ngIf="mensajeEnviado" class="confirmation-message">
+        <p>¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente.</p>
+    </div>
+</div>

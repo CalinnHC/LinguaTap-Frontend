@@ -39,6 +39,9 @@ export class ResultsComponent implements OnInit {
     else if(this.game === 3) {
       this.gameName = "Verbos Irregulares";
     }
+    else if(this.game === 4) {
+      this.gameName = "Pareo";
+    }
   }
 
   retry(): void {

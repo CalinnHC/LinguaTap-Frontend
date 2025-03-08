@@ -24,6 +24,8 @@
 
 p{
   font-size: 1.3rem;
+  color: var(--text-color);
+  
 }
 
 .game-card {
@@ -41,7 +43,7 @@ p{
 }
 
 .game-card:hover {
-  background-color: #ffe08c;
+  background-color: var(--cards-hover-color);
   transform: translateY(-10px);
 }
 
@@ -69,6 +71,7 @@ p{
 .game-card h3 {
   font-family: 'Alegreya Sans', medium;
   font-size: 30px;
+  color: var(--text-color);
   margin: 0;
 }
 

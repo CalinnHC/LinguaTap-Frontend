@@ -23,7 +23,6 @@ export class IrregularVerbsComponent {
   
     ngOnInit(): void {
       this.fetchVerbs();
-      console.log(this.verbsArray.slice(0,50));
       this.updatePage();
       this.apiService.toggleSidebar(true);
     }
@@ -36,7 +35,6 @@ export class IrregularVerbsComponent {
       this.wordService.getAllIrregularVerb().subscribe({
         next: (data) => {
           this.verbsArray = Array.isArray(data) ? data : [data];
-          console.log(this.verbsArray);
           this.displayedVerbs = this.verbsArray.slice(0, 0 + this.verbsPerPage);
         },
         error: (err) => {

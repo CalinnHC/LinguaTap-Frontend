@@ -34,7 +34,6 @@ export class ForgottenPasswordComponent {
         next: (response) => {
           this.errorMessage = response; // Respuesta del servidor
           this.showEmailInput = false;
-          console.log("Correo enviado: ", response);
         },
         error: (err) => {
           // Manejo de errores según el código de estado

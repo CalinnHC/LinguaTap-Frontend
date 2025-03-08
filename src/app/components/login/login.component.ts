@@ -28,7 +28,6 @@ export class LoginComponent {
       next: (response) => {
         if (response.token) {
           this.apiService.saveToken(response.token); // Guardar el token JWT
-          console.log('Login exitoso. Token guardado.');
           this.navigateTo('/mainMenu'); // Redirigir al menú principal
         } else {
           this.errorMessage = 'Nombre de usuario o contraseña incorrectos.';

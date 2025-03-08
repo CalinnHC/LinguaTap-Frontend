@@ -36,7 +36,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: var(--cards-color);;
 }
 
 .word-title{
@@ -49,11 +49,15 @@
 
 .word {
   font-weight: bold;
-  color: #333;
+  color: var(--text-color);
 }
 
 .translation {
-  color: #666;
+  color: var(--text-color);
+}
+
+h1{
+  color: var(--text-color);
 }
 
 .pagination {

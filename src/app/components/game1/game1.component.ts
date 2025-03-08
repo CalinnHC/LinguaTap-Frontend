@@ -42,7 +42,6 @@ export class Game1Component{
     const guess = event.key.toLowerCase();
     if(this.goodAns){
       if (guess === 'enter' || guess === ' ') {
-        console.log(this.message);
         this.message = '';
         this.goodAns = !this.goodAns;
         this.initializeGame();
@@ -130,7 +129,6 @@ export class Game1Component{
       this.gameOver = true;
       this.apiService.newScore(1, this.correctCount).subscribe({
         next: (response) => {
-          console.log('Puntaje registrado:', response);
         },
         error: (error) => {
           console.error('Error al registrar puntaje:', error);
