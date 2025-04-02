@@ -103,6 +103,39 @@ h3 {
   }
   p {
     color: var(--text-color);
+    min-height: 1em;  /* Ajusta este valor según sea necesario */
+  }
+  .next-button{
+    min-height: 50px; /* Ajusta este valor según sea necesario */
+  }
+
+  .button-next {
+    margin-top: 20px;
+    font-size: 18px;
+    background-color: var(--line-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button-next:hover {
+    background-color: var(--line-color);
+  }
+  
+  .button-next:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .button-next {
+    opacity: 0; /* El botón será invisible */
+    pointer-events: none; /* Desactiva interacción */
+  }
+  
+  .button-next.visible {
+    opacity: 1; /* Hace el botón visible cuando se agrega la clase "visible" */
+    pointer-events: auto; /* Permite interacción */
   }
   
 /* Estilos generales ya proporcionados */
@@ -125,7 +158,6 @@ h3 {
         height: 60px;
         font-size: xx-large;
         color: var(--text-color);
-        background-color: var(--line-color);
         transition: background-color 0.3s ease; 
     }
    
@@ -161,7 +193,7 @@ h3 {
     }
 
     .game {
-        height: auto;
+        height: 85vh;
         /* Ajustar altura para contenido dinámico */
         padding: 10px;
         box-sizing: border-box;

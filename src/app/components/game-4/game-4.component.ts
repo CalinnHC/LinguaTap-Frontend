@@ -41,7 +41,11 @@ export class Game4Component {
         this.wordPairs = data
           .sort(() => Math.random() - 0.5)
           .slice(0, 6)
-          .map(pair => ({ english: pair.word, spanish: pair.spanish[0], matched: false }));
+          .map(pair => ({ 
+            english: pair.word.toUpperCase(), 
+            spanish: pair.spanish[0].toUpperCase(), 
+            matched: false 
+          }));
         this.shuffleWords();
       },
       error: (err) => {
@@ -49,6 +53,8 @@ export class Game4Component {
       }
     });
   }
+  
+  
 
   updatePercent() {
     const totalAttempts = this.correctCount + this.errorsCount;
@@ -56,8 +62,8 @@ export class Game4Component {
   }
 
   shuffleWords(): void {
-    this.shuffledEnglish = [...this.wordPairs.map(w => w.english)].sort(() => Math.random() - 0.5);
-    this.shuffledSpanish = [...this.wordPairs.map(w => w.spanish)].sort(() => Math.random() - 0.5);
+    this.shuffledEnglish = [...this.wordPairs.map(w => w.english.toUpperCase())].sort(() => Math.random() - 0.5);
+    this.shuffledSpanish = [...this.wordPairs.map(w => w.spanish.toUpperCase())].sort(() => Math.random() - 0.5);
   }
 
   selectEnglish(word: string): void {
@@ -111,7 +117,7 @@ export class Game4Component {
 
   checkGameOver() {
     if (this.errorsCount >= 10) {
-      this.apiService.newScore(4, this.correctCount).subscribe({
+      this.apiService.newScore(4, this.correctCount, this.errorsCount, this.percentCount).subscribe({
         next: (response) => {
         },
         error: (error) => {

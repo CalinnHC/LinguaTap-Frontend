@@ -11,6 +11,7 @@ export class ResultsComponent implements OnInit {
   percentage: number = 0;
   correctAnswers: number = 0;
   errors: number = 0;
+  finalScore: number = 0;
   game: number = 0;
   gameAns: string | null = null;
   gameName: string = "";
@@ -20,6 +21,7 @@ export class ResultsComponent implements OnInit {
   ngOnInit(): void {
     this.extractParams();
     this.setGameName();
+    this.calculateFinalScore();
   }
 
   extractParams(): void {
@@ -50,5 +52,9 @@ export class ResultsComponent implements OnInit {
 
   goHome(): void {
     this.router.navigate(['/home']);
+  }
+
+  calculateFinalScore(): void {
+    this.finalScore = (this.percentage + (this.correctAnswers * 2 - this.errors)) * 10 + this.correctAnswers + this.errors;
   }
 }

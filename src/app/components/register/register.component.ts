@@ -20,6 +20,7 @@ export class RegisterComponent {
   options = [
     { value: '133', label: 'Panamá' }
   ];
+  registroExitoso: boolean = false; 
 
   constructor(private router: Router, private apiService: ApiService, private wordsService: WordService) {
     this.wordsService.getCountries().subscribe((data) => {
@@ -37,8 +38,8 @@ navigateTo(route: string) {
 onRegister(): void {
   this.apiService.newUser(this.username, this.password, this.email, this.country).subscribe({
     next: (response) => {
-      this.errorMessage = ''; // Limpia cualquier error previo
-      this.navigateTo('/');
+      this.errorMessage = 'Se ha enviado un enlace de confirmación a su correo electrónico.'; // Limpia cualquier error previo
+      this.registroExitoso = true;
     },
     error: (error) => {
       console.error('Error al registrar:', error.error);

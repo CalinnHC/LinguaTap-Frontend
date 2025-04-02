@@ -21,7 +21,6 @@ export class ContactComponent {
     event.preventDefault();
     this.saveReport();
     this.mensajeEnviado = true;
-    console.log('Mensaje enviado:', this.errorReporte);
   }
 
   saveReport() {

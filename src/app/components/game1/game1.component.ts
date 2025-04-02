@@ -127,7 +127,7 @@ export class Game1Component{
       this.goodAns = true;
     } else if (this.errorsCount >= 10) {
       this.gameOver = true;
-      this.apiService.newScore(1, this.correctCount).subscribe({
+      this.apiService.newScore(1, this.correctCount, this.errorsCount, this.percentCount).subscribe({
         next: (response) => {
         },
         error: (error) => {

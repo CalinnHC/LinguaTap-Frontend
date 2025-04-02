@@ -119,6 +119,7 @@ button.button-next:disabled {
 @media (max-width: 768px) {
   .quiz-container {
     gap: 20px;
+    height: 92vh;
   }
 
   .inputs-container {

@@ -2,24 +2,37 @@
   <img src="LinguaTapLogo.png" alt="LinguaTap Logo" class="Logo" />
   <div class="home-content">
     <h2>Registrarse</h2>
-    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
-    <form (ngSubmit)="onRegister()">
+
+    <!-- Muestra solo si el registro fue exitoso -->
+    <div *ngIf="registroExitoso" class="success-message">
+      <p>Se ha enviado un enlace de confirmación a su correo electrónico.</p>
+      <button (click)="navigateTo('/login')">Ir a Iniciar Sesión</button>
+    </div>
+
+    <!-- Muestra el formulario solo si no se ha registrado -->
+    <form *ngIf="!registroExitoso" (ngSubmit)="onRegister()">
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
       <input type="text" [(ngModel)]="email" id="email" name="email" placeholder="Correo Electrónico" required>
       <input type="password" [(ngModel)]="password" id="password" name="password" placeholder="Contraseña" required>
       <input type="text" [(ngModel)]="username" id="name" name="name" placeholder="Nombre de Usuario" required>
+      
       <select [(ngModel)]="country" name="mySelect" required>
         <option value="0" disabled selected>País</option>
         <option *ngFor="let option of options" [value]="option.value">
           {{ option.label }}
         </option>
       </select>
+
       <div class="checkbox-label">
-        <label class="checkbox-label">
-          <input type="checkbox" name="age" value="age" [(ngModel)]="check" required> Tienes al menos 16 años
+        <label>
+          <input type="checkbox" name="age" value="age" [(ngModel)]="check" required>
+          Al registrarte, aceptas nuestros <a target="_blank" href="terms-and-conditions">Términos y condiciones</a> y la <a target="_blank" href="privacy-policy">Política de privacidad</a>.
         </label>
       </div>
+
       <button type="submit" [disabled]="!isFormValid()">Registrarse</button>
-      <label>Ya tienes una cuenta <a href="/login">Iniciar Sesión</a></label>
+      <label>¿Ya tienes una cuenta? <a href="/login">Iniciar Sesión</a></label>
     </form>
   </div>
 </div>

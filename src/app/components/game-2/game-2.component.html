@@ -23,8 +23,8 @@
         
         <h2>Correctas<br>{{ correctCount }}</h2>
       </div>
-      <button *ngIf="next" (click)="generateQuestion()">Siguiente</button>
-      <p>{{ message }}</p>
+      <button [ngClass]="buttonNextClasses" class="button-next" (click)="generateQuestion()">></button>
+      <p class="next-message">{{ message }}</p>
       
   </div>
     

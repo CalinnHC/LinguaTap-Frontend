@@ -3,14 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { of } from 'rxjs';
+import { Console } from 'node:console';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:8080';
-  private headers = new HttpHeaders({'ngrok-skip-browser-warning': 'true'});
+  private baseUrl = 'https://api.linguatap.com:8080';
   private showSidebar = new BehaviorSubject<boolean>(false);
+  
   showSidebar$ = this.showSidebar.asObservable();
 
 
@@ -48,7 +49,7 @@ export class ApiService {
   //Profile Service
   changePassword(currentPassword: String, newPassword: string): Observable<any> {
     const id = this.getUserId();
-    return this.http.get<any>(`${this.baseUrl}/changePassword/${id}/${currentPassword}/${newPassword}`, { headers: this.headers });
+    return this.http.get<any>(`${this.baseUrl}/changePassword/${id}/${currentPassword}/${newPassword}`);
   }
 
   
@@ -57,7 +58,7 @@ export class ApiService {
   if (user_id == null) {
     return of(null);
   }
-  return this.http.get<any>(`${this.baseUrl}/user/${user_id}`, { headers: this.headers });
+  return this.http.get<any>(`${this.baseUrl}/user/${user_id}`);
   }
 
   getScoreByUser(): Observable<any> {
@@ -65,19 +66,20 @@ export class ApiService {
     if (user_id == null) {
       return of(null);
     }
-    return this.http.get<any>(`${this.baseUrl}/scoresbyid?id_user=${user_id}`, { headers: this.headers });
+    return this.http.get<any>(`${this.baseUrl}/scoresbyid?id_user=${user_id}`);
     }
 
   newUser(username: string, password: string, email: string, country: number) {
     const id_type: Number = 2;
     const body = {username, password, email, country,id_type};
-    return this.http.post(`${this.baseUrl}/user`, body, { responseType: 'text' });
+    const headers = new HttpHeaders({ "Content-Type": "application/json" });
+    return this.http.post(`${this.baseUrl}/user`, body, { headers, responseType: 'text' });
   }
   
 
-  newScore(id_game: number, score: number): Observable<any> {
-    console.log("Paso");
+  newScore(id_game: number, scorex: number, errors: number, percentage: number): Observable<any> {
     const user_id = this.getUserId();
+    const score = (percentage + (scorex * 2 - errors)) * 10 + scorex + errors;
     if (user_id == null){
       return of(null);
     }

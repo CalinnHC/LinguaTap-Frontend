@@ -104,7 +104,7 @@ export class Game2Component implements OnInit {
 
   checkGameOver() {
     if (this.errorsCount >= 10) {
-      this.apiService.newScore(2, this.correctCount).subscribe({
+      this.apiService.newScore(2, this.correctCount, this.errorsCount, this.percentCount).subscribe({
         next: (response) => {
         },
         error: (error) => {
@@ -127,5 +127,11 @@ export class Game2Component implements OnInit {
         game: 2
       },
     });
+  }
+
+  get buttonNextClasses() {
+    return {
+      'visible': this.next
+    };
   }
 }

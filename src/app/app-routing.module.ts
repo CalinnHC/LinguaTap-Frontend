@@ -35,13 +35,13 @@ const routes: Routes = [
   { path: 'new-password', component: NewPasswordComponent, canActivate: [noAuthGuard]},
   { path: 'result', component: ResultsComponent, canActivate: [authGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard]},
-  { path: 'game-3', component: Game3Component},
-  { path: 'dictionary', component: DictionaryComponent},
-  { path: 'irregularVerbs', component: IrregularVerbsComponent},
+  { path: 'game-3', component: Game3Component, canActivate: [authGuard]},
+  { path: 'dictionary', component: DictionaryComponent, canActivate: [authGuard]},
+  { path: 'irregularVerbs', component: IrregularVerbsComponent, canActivate: [authGuard]},
   { path: 'privacy-policy', component: PrivacyPolicyComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent},
-  { path: 'game-4', component: Game4Component},
+  { path: 'game-4', component: Game4Component, canActivate: [authGuard]},
   { path: '**', redirectTo: '' },
 ];
 

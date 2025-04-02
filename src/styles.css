@@ -13,12 +13,12 @@
 
   .dark-theme {
     --background-color: #141616;
-    --text-color: #FAFCFC;
-    --button-color: #FFBC02;
-    --cards-color: #4D4D4D;
-    --cards-hover-color: #797979;
-    --stats-color: #65558F;
-    --line-color: #ceff1f;
+  --text-color: #FAFCFC;
+  --button-color: #FFBC02;
+  --cards-color: #4D4D4D;
+  --cards-hover-color: #797979;
+  --stats-color: #65558F;
+  --line-color: #ceff1f;
   }
   .light-theme {
     --background-color: #FAFCFC;

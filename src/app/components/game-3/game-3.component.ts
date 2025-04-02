@@ -134,7 +134,7 @@ export class Game3Component {
 
   checkGameOver() {
     if (this.errorsCount >= 10) {
-      this.apiService.newScore(3, this.correctCount).subscribe({
+      this.apiService.newScore(3, this.correctCount, this.errorsCount, this.percentCount).subscribe({
         next: (response) => {
         },
         error: (error) => {
